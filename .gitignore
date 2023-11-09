@@ -1,0 +1,10 @@
+# .gitignore
+
+# Python
+venv/
+
+# Vue.js
+node_modules/
+
+# Compiled files
+dist/
