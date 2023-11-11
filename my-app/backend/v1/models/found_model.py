@@ -4,7 +4,7 @@ backend/models/basemodel.py
 
 This module defines the BaseModel class, which serves as the foundation for other models.
 """
-import models
+
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 

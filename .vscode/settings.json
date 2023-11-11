@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "basemodel",
+        "jsonify",
         "onupdate",
         "SQLALCHEMY"
     ],
