@@ -1,0 +1,8 @@
+{
+    "cSpell.words": [
+        "SQLALCHEMY"
+    ],
+    "python.analysis.extraPaths": [
+        "./my-app/backend/v1"
+    ]
+}
