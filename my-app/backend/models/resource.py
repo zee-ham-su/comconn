@@ -1,7 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
-backend/models/resource.py
-
 Defines the Resource model for mapping community resources.
 """
 

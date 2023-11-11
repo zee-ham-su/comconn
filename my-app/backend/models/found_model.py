@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-class BaseModel():
+class BaseModel(db.Model):
     """
     BaseModel class serves as the base model for other models.
 
@@ -98,3 +98,4 @@ class BaseModel():
         for key, value in kwargs.items():
             setattr(self, key, value)
         self.save()
+	
