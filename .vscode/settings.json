@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
+        "basemodel",
+        "onupdate",
         "SQLALCHEMY"
     ],
     "python.analysis.extraPaths": [
