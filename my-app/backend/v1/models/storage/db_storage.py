@@ -7,8 +7,10 @@ Defines the DBStorage class for interacting with the MySQL database.
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from models.found_model import Base
-from models import *
+from models.user import User
+from models.review import Review
+from models.found_model import BaseModel, Base
+from models.resource import   Resource
 from config import AppConfig
 
 class DBStorage:

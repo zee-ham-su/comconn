@@ -7,6 +7,7 @@
         "SQLALCHEMY"
     ],
     "python.analysis.extraPaths": [
-        "./my-app/backend/v1"
+        "./my-app/backend/v1",
+        "./my-app/backend/v1/models/storage"
     ]
 }

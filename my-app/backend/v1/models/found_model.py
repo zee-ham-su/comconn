@@ -34,25 +34,26 @@ class BaseModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = db.Column(
+        db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
-	    """Initialization of the base model"""
+        """Initialization of the base model"""
         super().__init__(*args, **kwargs)
 
     def save(self):
-	    """Commits the instance to the database."""
+        """Commits the instance to the database."""
         db.session.add(self)
         db.session.commit()
 
     def delete(self):
-	    """Deletes the instance from the database."""										
+        """Deletes the instance from the database."""
         db.session.delete(self)
         db.session.commit()
 
     @classmethod
     def create(cls, **kwargs):
-	    """
+        """
         Creates and saves a new instance.
 
         Args:
@@ -67,7 +68,7 @@ class BaseModel(db.Model):
 
     @classmethod
     def retrieve(cls, object_id):
-	    """
+        """
         Retrieves an instance by its primary key.
 
         Args:
@@ -80,7 +81,7 @@ class BaseModel(db.Model):
 
     @classmethod
     def count(cls):
-	    """
+        """
         Returns the total count of instances.
 
         Returns:
@@ -89,7 +90,7 @@ class BaseModel(db.Model):
         return cls.query.count()
 
     def update_attributes(self, **kwargs):
-	    """
+        """
         Updates instance attributes and saves to the database.
 
         Args:
@@ -98,4 +99,3 @@ class BaseModel(db.Model):
         for key, value in kwargs.items():
             setattr(self, key, value)
         self.save()
-	

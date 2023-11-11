@@ -5,24 +5,21 @@ Flask app
 from routes.review_route import review_bp
 from routes.resource_route import resource_bp
 from routes.user_route import user_bp
-from flask import Flask, jsonify
+from flask import Flask, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
-from models import storage
+from models.storage.db_storage import DBStorage
+import DBStorage
+import os
 
+db_storage = DBStorage()
 app = Flask(__name__)
-
 # Update the database URI with your MySQL credentials and database name
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{os.getenv('MYAPP_DB_USER')}:{os.getenv('MYAPP_DB_PWD')}@localhost/{os.getenv('MYAPP_DB_NAME')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # To suppress a warning
+
 
 # Initialize the SQLAlchemy instance with the Flask app
 db = SQLAlchemy(app)
-
-
-# Create tables based on the defined models
-db.create_all()
-
-# Import blueprints from routes
 
 # Register blueprints
 app.register_blueprint(user_bp)
@@ -35,7 +32,7 @@ app.register_blueprint(review_bp)
 @app.teardown_appcontext
 def close_db(error):
     """ Close Storage """
-    storage.close()
+    db_storage.close()
 
 # 404 Error handler
 
@@ -52,4 +49,7 @@ def not_found(error):
 
 
 if __name__ == "__main__":
+    with app.app_context():
+        # Create tables based on the defined models
+        db.create_all()
     app.run(debug=True)
