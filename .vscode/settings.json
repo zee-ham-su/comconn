@@ -2,12 +2,17 @@
     "cSpell.words": [
         "appcontext",
         "basemodel",
+        "commcon",
         "jsonify",
+        "mysqldb",
         "onupdate",
+        "sess",
+        "sessionmaker",
         "SQLALCHEMY"
     ],
     "python.analysis.extraPaths": [
         "./my-app/backend/v1",
-        "./my-app/backend/v1/models/storage"
+        "./my-app/backend/v1/models/storage",
+        "./my-app/models"
     ]
 }

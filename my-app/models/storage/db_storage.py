@@ -10,8 +10,11 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from models.user import User
 from models.review import Review
 from models.found_model import BaseModel, Base
-from models.resource import   Resource
+from models.resource import Resource
 from config import AppConfig
+
+classes = {"User": User, "Review": Review, "Resource": Resource}
+
 
 class DBStorage:
     """
@@ -56,7 +59,8 @@ class DBStorage:
 
         for cls_to_query in query_classes:
             objs = self.__session.query(cls_to_query).all()
-            new_dict.update({f"{obj.__class__.__name__}.{obj.id}": obj for obj in objs})
+            new_dict.update(
+                {f"{obj.__class__.__name__}.{obj.id}": obj for obj in objs})
 
         return new_dict
 

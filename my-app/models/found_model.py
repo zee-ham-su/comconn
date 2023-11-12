@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-backend/models/basemodel.py
+backend/models/found_model.py
 
 This module defines the BaseModel class, which serves as the foundation for other models.
 """
 
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+
 
 db = SQLAlchemy()
 

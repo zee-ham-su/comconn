@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('/root/commcon/my-app/backend/v1/models')
 from flask import Blueprint, jsonify
-from models import storage
-from models.user import User
-user_bp = Blueprint('user_bp', __name__)
+from storage import storage
+from user import User
 
+user_bp = Blueprint('user_bp', __name__)
 
 @user_bp.route('/users')
 def get_users():

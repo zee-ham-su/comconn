@@ -2,8 +2,8 @@
 """
 Defines the Review model for the Community Resource Mapping application.
 """
-import models
-from models.found_model import BaseModel
+
+from found_model import BaseModel
 from sqlalchemy import Column, Integer, ForeignKey, Text
 from sqlalchemy.orm import relationship
 

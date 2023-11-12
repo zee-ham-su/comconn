@@ -8,7 +8,6 @@ from routes.user_route import user_bp
 from flask import Flask, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
 from models.storage.db_storage import DBStorage
-import DBStorage
 import os
 
 db_storage = DBStorage()
