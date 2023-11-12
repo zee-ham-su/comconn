@@ -3,7 +3,6 @@
 Defines the Resource model for mapping community resources.
 """
 
-import models
 from models.found_model import BaseModel
 from sqlalchemy import Column, String, Text
 
