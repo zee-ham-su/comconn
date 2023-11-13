@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from flask import Blueprint, jsonify
 from models import storage
-from models.resource import Resource
+from models.resource_1 import Resource
 resource_bp = Blueprint('resource_bp', __name__)
 
 

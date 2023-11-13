@@ -10,8 +10,9 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from models.user import User
 from models.review import Review
 from models.found_model import BaseModel, Base
-from models.resource import Resource
-from config import AppConfig
+from models.resource_1 import Resource
+from models.storage.config import AppConfig
+
 
 classes = {"User": User, "Review": Review, "Resource": Resource}
 
@@ -96,8 +97,8 @@ class DBStorage:
         """
         Calls remove() method on the private session attribute.
         """
-        with self.__session() as session:
-            pass
+        if self.__session:
+            self.__session.remove()
 
     def get(self, cls, id):
         """

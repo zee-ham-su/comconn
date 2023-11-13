@@ -7,7 +7,8 @@ This module defines the BaseModel class, which serves as the foundation for othe
 
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-
+from sqlalchemy.orm import declarative_base
+Base = declarative_base()
 
 db = SQLAlchemy()
 

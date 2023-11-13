@@ -5,7 +5,8 @@ Initialize the database for the Flask app.
 This script creates the necessary tables in the database.
 """
 
-from app.app import create_app, db
+from backend.v1.app import create_app, db
+
 
 
 def init_db():

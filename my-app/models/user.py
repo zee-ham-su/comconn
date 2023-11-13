@@ -4,8 +4,7 @@ Defines the User model for the Community Resource Mapping application.
 """
 
 from sqlalchemy import Column, String
-
-from found_model import BaseModel
+from models.found_model import BaseModel
 
 class User(BaseModel):
     """
