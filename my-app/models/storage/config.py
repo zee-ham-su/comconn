@@ -23,8 +23,8 @@ class AppConfig:
     Methods:
         (None)
     """
-    MYAPP_DB_USER = getenv('MYAPP_DB_USER')
-    MYAPP_DB_PWD = getenv('MYAPP_DB_PWD')
-    MYAPP_DB_HOST = getenv('MYAPP_DB_HOST')
-    MYAPP_DB_NAME = getenv('MYAPP_DB_NAME')
+    MYAPP_DB_USER = 'com_connect'
+    MYAPP_DB_PWD = 'com_connect_pwd'
+    MYAPP_DB_HOST = 'localhost'
+    MYAPP_DB_NAME = 'com_connect_db'
     MYAPP_ENV = getenv('MYAPP_ENV')

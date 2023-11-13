@@ -1,0 +1,7 @@
+-- prepares a MySQL server for the project
+
+CREATE DATABASE IF NOT EXISTS com_connect_db;
+CREATE USER IF NOT EXISTS 'com_connect'@'localhost' IDENTIFIED BY 'com_connect_pwd';
+GRANT ALL PRIVILEGES ON `com_connect_db`.* TO 'com_connect'@'localhost';
+GRANT SELECT ON `performance_schema`.* TO 'com_connect'@'localhost';
+FLUSH PRIVILEGES;

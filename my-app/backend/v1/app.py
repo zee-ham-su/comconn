@@ -9,6 +9,7 @@ from routes.review_route import review_bp
 from routes.resource_route import resource_bp
 from routes.user_route import user_bp
 from models.storage.db_storage import DBStorage
+from models.storage.config import AppConfig  # Import AppConfig from config.py
 import os
 
 # Initialize the SQLAlchemy instance with the Flask app
@@ -20,7 +21,7 @@ db_storage = DBStorage()
 def create_app():
     app = Flask(__name__)
     # Update the database URI with your MySQL credentials and database name
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{os.getenv('MYAPP_DB_USER')}:{os.getenv('MYAPP_DB_PWD')}@localhost/{os.getenv('MYAPP_DB_NAME')}"
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{AppConfig.MYAPP_DB_USER}:{AppConfig.MYAPP_DB_PWD}@{AppConfig.MYAPP_DB_HOST}/{AppConfig.MYAPP_DB_NAME}"
     # To suppress a warning
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
