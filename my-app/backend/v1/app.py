@@ -34,7 +34,8 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     # To suppress a warning
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+    app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+    
     # Initialize the SQLAlchemy instance with the Flask app
     db.init_app(app)
 
