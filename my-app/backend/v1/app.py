@@ -2,6 +2,13 @@
 """
 Flask app
 """
+
+from models.found_model import db
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append("/root/commcon/my-app")
+
 # backend/v1/app.py
 from flask import Flask, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
@@ -10,18 +17,21 @@ from routes.resource_route import resource_bp
 from routes.user_route import user_bp
 from models.storage.db_storage import DBStorage
 from models.storage.config import AppConfig  # Import AppConfig from config.py
-import os
+
 
 # Initialize the SQLAlchemy instance with the Flask app
 db = SQLAlchemy()
 
 db_storage = DBStorage()
 
+#models import
 
 def create_app():
     app = Flask(__name__)
     # Update the database URI with your MySQL credentials and database name
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{AppConfig.MYAPP_DB_USER}:{AppConfig.MYAPP_DB_PWD}@{AppConfig.MYAPP_DB_HOST}/{AppConfig.MYAPP_DB_NAME}"
+    db_uri = f"mysql://{AppConfig.MYAPP_DB_USER}:{AppConfig.MYAPP_DB_PWD}@{AppConfig.MYAPP_DB_HOST}/{AppConfig.MYAPP_DB_NAME}"
+    print(f"Database URI: {db_uri}")
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     # To suppress a warning
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

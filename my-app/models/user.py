@@ -2,9 +2,12 @@
 """
 Defines the User model for the Community Resource Mapping application.
 """
+import sys
+sys.path.append("/root/commcon/my-app")
 
 from sqlalchemy import Column, String
 from models.found_model import BaseModel
+from sqlalchemy.orm import relationship
 
 class User(BaseModel):
     """
@@ -23,6 +26,9 @@ class User(BaseModel):
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     password = Column(String)
+
+    reviews = relationship("Review", back_populates="user",
+                           cascade="all, delete-orphan")
 
     def __repr__(self):
         """

@@ -2,7 +2,7 @@
 """
 Initialization module for the models package.
 
-This module handles the initialization of the storage based on the value of HBNB_TYPE_STORAGE environment variable.
+This module handles the initialization of the storage based on the value of TYPE_STORAGE environment variable.
 """
 from os import getenv
 

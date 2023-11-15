@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 """
 backend/db_storage.py
-
 Defines the DBStorage class for interacting with the MySQL database.
 """
+import sys
+sys.path.append("/root/commcon/my-app")
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session, Session
 from models.user import User
 from models.review import Review
 from models.found_model import BaseModel, Base
@@ -48,8 +49,10 @@ class DBStorage:
         self.__engine = create_engine(
             f'mysql+mysqldb://{self.config.MYAPP_DB_USER}:{self.config.MYAPP_DB_PWD}@{self.config.MYAPP_DB_HOST}/{self.config.MYAPP_DB_NAME}'
         )
+        
         if self.config.MYAPP_ENV == "test":
             Base.metadata.drop_all(self.__engine)
+        self.reload()
 
     def all(self, cls=None):
         """
@@ -116,3 +119,9 @@ class DBStorage:
         """
         all_class = classes.values() if not cls else [cls]
         return sum(len(self.all(clas).values()) for clas in all_class)
+    
+    def get_all(self, model):
+        """
+        Returns a list of all objects of the given model.
+        """
+        return self.__session.query(model).all()

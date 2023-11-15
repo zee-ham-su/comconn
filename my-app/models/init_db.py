@@ -5,9 +5,10 @@ Initialize the database for the Flask app.
 This script creates the necessary tables in the database.
 """
 
+from models.user import User
+import sys
+sys.path.append("/root/commcon/my-app")
 from backend.v1.app import create_app, db
-
-
 
 def init_db():
     """
@@ -30,8 +31,19 @@ def init_db():
     app = create_app()
 
     with app.app_context():
-        db.create_all()
-
+        try:
+            # Explicitly import User model
+            print("Registered models before creating tables:")
+            print(User)
+            
+            db.create_all()
+            
+            # Print tables after creating
+            print("Tables created successfully!")
+            print("Listing tables:")
+            print(db.metadata.tables.keys())
+        except Exception as e:
+            print(f"Error creating tables: {e}")
 
 if __name__ == "__main__":
     init_db()

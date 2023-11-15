@@ -15,6 +15,7 @@
         "./my-app/backend/v1",
         "./my-app/backend/v1/models/storage",
         "./my-app/models",
-        "./my-app/models/storage"
+        "./my-app/models/storage",
+        "./my-app/backend"
     ]
 }

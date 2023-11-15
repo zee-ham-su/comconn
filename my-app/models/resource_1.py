@@ -2,11 +2,15 @@
 """
 Defines the Resource model for mapping community resources.
 """
-from models.found_model import BaseModel
+
+from sqlalchemy.orm import relationship
+import sys
+sys.path.append("/root/commcon/my-app")
+
+from models.found_model import BaseModel, Base
 from sqlalchemy import Column, String, Text
 
-
-class Resource(BaseModel):
+class Resource(BaseModel, Base):
     """
     Resource model class for mapping community resources.
 
@@ -27,6 +31,7 @@ class Resource(BaseModel):
     name = Column(String(255), nullable=False)
     category = Column(String(50), nullable=False)
     description = Column(Text, nullable=False)
+    reviews = relationship("Review", back_populates="resource")
 
     def __repr__(self):
         """

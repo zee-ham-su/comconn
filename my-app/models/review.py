@@ -2,6 +2,9 @@
 """
 Defines the Review model for the Community Resource Mapping application.
 """
+import sys
+sys.path.append("/root/commcon/my-app")
+
 
 from models.found_model import BaseModel
 from sqlalchemy import Column, Integer, ForeignKey, Text
