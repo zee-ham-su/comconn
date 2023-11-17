@@ -2,16 +2,15 @@
 """
 Defines the Review model for the Community Resource Mapping application.
 """
+from datetime import datetime
+from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from models.found_model import BaseModel, Base
 import sys
 sys.path.append("/root/commcon/my-app")
 
 
-from models.found_model import BaseModel
-from sqlalchemy import Column, Integer, ForeignKey, Text
-from sqlalchemy.orm import relationship
-
-
-class Review(BaseModel):
+class Review(BaseModel, Base):
     """
     Review model for representing reviews in the application.
 
@@ -30,10 +29,12 @@ class Review(BaseModel):
     """
     __tablename__ = "reviews"
 
-    user_id = Column(Integer, ForeignKey('users.id'))
-    resource_id = Column(Integer, ForeignKey('resources.id'))
-    rating = Column(Integer)
-    comment = Column(Text)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    resource_id = Column(Integer, ForeignKey('resources.id'), nullable=False)
+    rating = Column(Integer, nullable=False)
+    comment = Column(String(255))
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user = relationship("User", back_populates="reviews")
     resource = relationship("Resource", back_populates="reviews")

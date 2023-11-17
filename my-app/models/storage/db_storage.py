@@ -41,15 +41,21 @@ class DBStorage:
     __engine = None
     __session = None
 
+    @property
+    def engine(self):
+        """Property to access the engine."""
+        return self.__engine
+    
     def __init__(self):
         """
         Initializes a DBStorage object.
         """
         self.config = AppConfig()
         self.__engine = create_engine(
-            f'mysql+mysqldb://{self.config.MYAPP_DB_USER}:{self.config.MYAPP_DB_PWD}@{self.config.MYAPP_DB_HOST}/{self.config.MYAPP_DB_NAME}'
+            f'mysql+mysqldb://{self.config.MYAPP_DB_USER}:{self.config.MYAPP_DB_PWD}@{self.config.MYAPP_DB_HOST}/{self.config.MYAPP_DB_NAME}',
+            pool_pre_ping=True 
         )
-        
+
         if self.config.MYAPP_ENV == "test":
             Base.metadata.drop_all(self.__engine)
         self.reload()
@@ -125,3 +131,21 @@ class DBStorage:
         Returns a list of all objects of the given model.
         """
         return self.__session.query(model).all()
+    
+    def create_session(self):
+        """
+        Creates a new session if it doesn't exist, otherwise returns the existing session.
+        """
+        if not self.__engine:
+            self.__engine = create_engine(
+                f'mysql+mysqldb://{self.config.MYAPP_DB_USER}:{self.config.MYAPP_DB_PWD}@{self.config.MYAPP_DB_HOST}/{self.config.MYAPP_DB_NAME}',
+                pool_pre_ping=True
+            )
+
+        if not self.__session:
+            sess_factory = sessionmaker(
+                bind=self.__engine, expire_on_commit=False)
+            Session = scoped_session(sess_factory)
+            self.__session = Session
+
+        return self.__session

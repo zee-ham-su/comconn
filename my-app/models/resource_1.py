@@ -29,7 +29,6 @@ class Resource(BaseModel, Base):
     __tablename__ = 'resources'
 
     name = Column(String(255), nullable=False)
-    category = Column(String(50), nullable=False)
     description = Column(Text, nullable=False)
     reviews = relationship("Review", back_populates="resource")
 

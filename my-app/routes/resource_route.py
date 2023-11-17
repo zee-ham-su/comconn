@@ -13,5 +13,5 @@ def get_resources():
     storage = DBStorage()
     resources = storage.get_all(Resource)
     resource_data = [{'id': resource.id, 'name': resource.name,
-                      'category': resource.category} for resource in resources]
+                      } for resource in resources]
     return jsonify({'resources': resource_data})
