@@ -42,3 +42,19 @@ class User(BaseModel, Base):
             str: A string representation of the User instance.
         """
         return f"<User {self.id}: {self.username}>"
+    
+    def to_dict(self):
+        """
+        Returns a dictionary representation of the User instance.
+
+        Returns:
+            dict: A dictionary containing user information.
+        """
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'password': self.password,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }

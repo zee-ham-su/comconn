@@ -38,3 +38,21 @@ class Review(BaseModel, Base):
 
     user = relationship("User", back_populates="reviews")
     resource = relationship("Resource", back_populates="reviews")
+
+
+    def to_dict(self):
+        """
+        Returns a dictionary representation of the Review instance.
+
+        Returns:
+            dict: A dictionary representation of the Review instance.
+        """
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'resource_id': self.resource_id,
+            'rating': self.rating,
+            'comment': self.comment,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }

@@ -40,3 +40,18 @@ class Resource(BaseModel, Base):
             str: String representation of the Resource instance.
         """
         return f"<Resource {self.id}: {self.name}>"
+    
+    def to_dict(self):
+        """
+        Returns a dictionary representation of the Resource instance.
+
+        Returns:
+            dict: A dictionary representation of the Resource instance.
+        """
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
