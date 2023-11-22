@@ -3,8 +3,7 @@
 from flask import Blueprint, jsonify, request, abort
 from models.storage.db_storage import DBStorage
 from models.user import User
-from models.review import Review
-from models.resource_1 import Resource
+
 
 
 user_bp = Blueprint('user_bp', __name__)

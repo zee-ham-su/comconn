@@ -4,6 +4,7 @@
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/resources">Resources</router-link></li>
       <li><router-link to="/reviews">Reviews</router-link></li>
+      <li><router-link to="/user">User Profile</router-link></li>
       <!-- Add more links as needed -->
     </ul>
   </nav>

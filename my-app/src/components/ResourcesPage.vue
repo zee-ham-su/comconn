@@ -44,7 +44,7 @@ export default {
 
 .resource-card {
   background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #1d6e4c;
   padding: 20px;
   margin-block-end: 20px;
   border-radius: 8px;
@@ -52,6 +52,6 @@ export default {
 }
 
 h1 {
-  color: #42b983;
+  color: #5842b9;
 }
 </style>

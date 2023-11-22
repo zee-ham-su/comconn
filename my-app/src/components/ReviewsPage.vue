@@ -2,33 +2,45 @@
   <div>
     <div class="container">
       <h1>Community Reviews</h1>
-      <div class="review-card" v-for="review in reviews" :key="review.id">
-        <h2>{{ review.title }}</h2>
-        <p>{{ review.content }}</p>
+        <div class="review-card" v-for="review in reviews" :key="review.id">
+        <h2>User ID: {{ review.user_id }}</h2>
+          <p>Resource ID: {{ review.resource_id }}</p>
+          <p>Rating: {{ review.rating }}</p>
+          <p>Comment: {{ review.comment }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import apiClient from '@/services/api.js';
 
 export default {
   name: 'ReviewsPage',
  
   data() {
     return {
-      reviews: [
-        { id: 1, title: 'Review 1', content: 'Content 1' },
-        { id: 2, title: 'Review 2', content: 'Content 2' },
-        // Add more sample reviews or fetch them from your API
-      ],
+      reviews: [],
     };
+  },
+  mounted() {
+    this.fetchReviews();
+  },
+  methods: {
+    async fetchReviews() {
+      try {
+        const response = await apiClient.get('/reviews');
+        this.reviews = response.data.reviews;
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
-/* Add styling for your ReviewsPage */
+/* Add styling for your ResourcesPage */
 .container {
   max-inline-size: 800px;
   margin: 0 auto;
@@ -36,7 +48,7 @@ export default {
 
 .review-card {
   background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #3b1397;
   padding: 20px;
   margin-block-end: 20px;
   border-radius: 8px;
@@ -44,6 +56,6 @@ export default {
 }
 
 h1 {
-  color: #42b983;
+  color: #5842b9;
 }
 </style>
