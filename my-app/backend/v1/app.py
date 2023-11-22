@@ -6,10 +6,12 @@ from flask import Flask, jsonify, make_response
 from routes.review_route import review_bp
 from routes.resource_route import resource_bp
 from routes.user_route import user_bp
+from flask_cors import CORS
 
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
 
     # Register blueprints
     app.register_blueprint(user_bp)
