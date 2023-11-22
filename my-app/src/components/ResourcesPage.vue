@@ -9,16 +9,28 @@
 </template>
 
 <script>
+import apiClient from '@/services/api.js';
+
 export default {
   name: 'ResourcesPage',
+
   data() {
     return {
-      resources: [
-        { id: 1, name: 'Resource 1', description: 'Description 1' },
-        { id: 2, name: 'Resource 2', description: 'Description 2' },
-        // Add more sample resources or fetch them from your API
-      ],
+      resources: [],
     };
+  },
+  mounted() {
+    this.fetchResources();
+  },
+  methods: {
+    async fetchResources() {
+      try {
+        const response = await apiClient.get('/resources');
+        this.resources = response.data.resources;
+      } catch (error) {
+        console.error('Error fetching resources:', error);
+      }
+    },
   },
 };
 </script>
