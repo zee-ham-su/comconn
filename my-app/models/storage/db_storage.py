@@ -149,3 +149,28 @@ class DBStorage:
             self.__session = Session
 
         return self.__session
+    
+    def get_user_by_username(self, username):
+        """
+        Get a user by username.
+
+        Args:
+            username (str): The username to search for.
+
+        Returns:
+            User or None: The User object if found, None otherwise.
+        """
+        return self.__session.query(User).filter_by(username=username).first()
+    
+    
+    def get_user_by_email(self, email):
+        """
+        Get a user by email.
+
+        Args:
+            email (str): The email to search for.
+
+        Returns:
+            User or None: The User object if found, None otherwise.
+        """
+        return self.__session.query(User).filter_by(email=email).first()

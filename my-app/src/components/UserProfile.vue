@@ -15,6 +15,7 @@
 
 <script>
 import apiClient from '@/services/api.js';
+import '@/update_profile.js';
 
 export default {
     name: 'UserProfile',

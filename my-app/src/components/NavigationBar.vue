@@ -1,11 +1,11 @@
 <template>
-  <nav>
-    <ul>
+  <nav class="navbar">
+    <ul class="nav-list">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/resources">Resources</router-link></li>
       <li><router-link to="/reviews">Reviews</router-link></li>
       <li><router-link to="/user">User Profile</router-link></li>
-      <!-- Add more links as needed -->
+      <li><router-link to="/login">Login Page</router-link></li>
     </ul>
   </nav>
 </template>
@@ -17,27 +17,34 @@ export default {
 </script>
 
 <style scoped>
-/* Add styling for your navigation bar */
-nav {
-  background-color: #333;
+/* Updated styling for your navigation bar */
+.navbar {
+  background-color: #2c3e50;
+  /* Dark blue-gray */
   color: white;
   padding: 10px;
 }
 
-ul {
+.nav-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-li {
+.nav-list li {
   margin-inline-end: 15px;
 }
 
-a {
+.nav-list a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  transition: color 0.3s ease;
+  /* Smooth transition for link color */
 }
-</style>
+
+.nav-list a:hover {
+  color: #3498db;
+  /* Light blue on hover */
+}</style>

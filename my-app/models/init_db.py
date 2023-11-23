@@ -68,7 +68,7 @@ def init_db():
         Column('id', Integer, primary_key=True, autoincrement=True),
         Column('username', String(255), unique=True),
         Column('email', String(255), unique=True),
-        Column('password', String(255)),
+        Column('password_hash', String(255)),
         Column('created_at', DateTime, default=datetime.utcnow,
                nullable=False),
         Column('updated_at', DateTime, default=datetime.utcnow,

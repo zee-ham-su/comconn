@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <h1>Community Resources</h1>
+    <h1 class="title">Community Resources</h1>
     <div class="resource-card" v-for="resource in resources" :key="resource.id">
-      <h2>{{ resource.name }}</h2>
-      <p>{{ resource.description }}</p>
+      <h2 class="resource-title">{{ resource.name }}</h2>
+      <p class="resource-description">{{ resource.description }}</p>
     </div>
   </div>
 </template>
@@ -36,10 +36,16 @@ export default {
 </script>
 
 <style scoped>
-/* Add styling for your ResourcesPage */
+/* Updated styling for your ResourcesPage */
 .container {
   max-inline-size: 800px;
   margin: 0 auto;
+}
+
+.title {
+  color: #5842b9;
+  text-align: center;
+  margin-block-end: 20px;
 }
 
 .resource-card {
@@ -51,7 +57,16 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  color: #5842b9;
+.resource-title {
+  color: #2c3e50;
+  /* Dark blue-gray */
+  font-size: 1.5em;
+  margin-block-end: 10px;
+}
+
+.resource-description {
+  color: #0c0e0d;
+  /* Gray */
+  font-size: 1.2em;
 }
 </style>

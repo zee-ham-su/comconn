@@ -7,12 +7,15 @@
         "commcon",
         "Cqoe",
         "Dgkfk",
+        "hexlify",
         "jsonify",
         "mysqldb",
         "onupdate",
         "sess",
         "sessionmaker",
-        "SQLALCHEMY"
+        "SQLALCHEMY",
+        "urandom",
+        "werkzeug"
     ],
     "python.analysis.extraPaths": [
         "./my-app/backend/v1",
