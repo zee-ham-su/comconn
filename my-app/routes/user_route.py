@@ -74,7 +74,20 @@ def login():
         storage = get_storage()
         user = storage.get_user_by_username(data.get('username'))
 
-        if user and check_password_hash(user.password_hash, data.get('password')):
+        entered_password = data.get(
+            'password').strip() if data.get('password') else None
+        stored_hashed_password = user.password_hash.strip(
+        ) if user and user.password_hash else None
+
+        print(f'Entered Password: "{entered_password}"')
+        print(f'Stored Hashed Password: "{stored_hashed_password}"')
+
+        if user:
+            print(f'User ID: {user.id}')
+            print(f'Username: {user.username}')
+            print(f'Email: {user.email}')
+            
+        if user and check_password_hash(stored_hashed_password, entered_password):
             login_user(user)
             return jsonify({'message': 'Login successful'}), 200
         else:
@@ -82,6 +95,7 @@ def login():
     else:
         # Render the login form for GET requests
         return render_template('login.html')
+
 
 
 @user_bp.route('/logout')
