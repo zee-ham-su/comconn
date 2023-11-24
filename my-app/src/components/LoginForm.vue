@@ -13,7 +13,35 @@
   </div>
 </template>
 
+<script>
+import apiClient from '@/services/api.js';
+export default {
+name: 'LoginForm',
+data() {
+  return {
+    username: '',
+    password: '',
+  };
+},
+methods: {
+        async login() {
+    try {
+      // Use the API service to send a login request
+      const response = await apiClient.post('/login', {
+        username: this.username,
+        password: this.password,
+      });
 
+      // Handle the response as needed
+      console.log(response.data.message);
+    } catch (error) {
+      // Handle errors
+      console.error('Login failed:', error.response.data.message);
+    }
+  },
+},
+};
+</script>
 
 <style scoped>
 .login-form-container {
