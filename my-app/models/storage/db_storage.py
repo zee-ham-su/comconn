@@ -174,3 +174,23 @@ class DBStorage:
             User or None: The User object if found, None otherwise.
         """
         return self.__session.query(User).filter_by(email=email).first()
+    
+    # Inside the DBStorage class
+
+
+    def get_unique_salt_from_database(self, user_id):
+        """
+        Get the unique salt for a user from the database.
+
+        Args:
+            user_id (int): The ID of the user.
+
+        Returns:
+            str or None: The unique salt if found, None otherwise.
+        """
+        user = self.get(User, user_id)
+        return user.unique_salt if user else None
+
+
+    
+

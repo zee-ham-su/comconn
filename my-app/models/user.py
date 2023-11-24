@@ -7,9 +7,18 @@ from flask_login import UserMixin
 from sqlalchemy import Column, String, Integer, DateTime
 from models.found_model import BaseModel, Base
 from datetime import datetime
-import sys
+import secrets
 from sqlalchemy.orm import relationship
-sys.path.append("/root/commcon/my-app")
+
+
+def generate_unique_salt():
+    """
+    Generate a unique salt using the secrets module.
+
+    Returns:
+        str: A random 8-character hexadecimal string used for salting passwords.
+    """
+    return secrets.token_hex(8)
 
 
 class User(BaseModel, Base, UserMixin):
@@ -20,6 +29,7 @@ class User(BaseModel, Base, UserMixin):
         username (str): The username of the user.
         email (str): The email address of the user.
         password_hash (str): The password of the user.
+        unique_salt (str): The unique salt for the user.
 
     Methods:
         __repr__: Returns a string representation of the User instance.
@@ -32,6 +42,7 @@ class User(BaseModel, Base, UserMixin):
     username = Column(String(255), unique=True, nullable=False)
     email = Column(String(255), unique=True, nullable=False)
     password_hash = Column(String(255), nullable=False)
+    unique_salt = Column(String(255))
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         onupdate=datetime.utcnow)
@@ -70,7 +81,9 @@ class User(BaseModel, Base, UserMixin):
         Args:
             password (str): The password to set.
         """
-        self.password_hash = generate_password_hash(password)
+        self.unique_salt = generate_unique_salt()
+        self.password_hash = generate_password_hash(
+            self.unique_salt + password)
 
     def check_password(self, password):
         """
@@ -84,8 +97,8 @@ class User(BaseModel, Base, UserMixin):
         """
         if self.password_hash is None:
             return False
-        return check_password_hash(self.password_hash, password)
-    
+        return check_password_hash(self.password_hash, self.unique_salt + password)
+
     def get_id(self):
         """
         Returns the user ID, required for Flask-Login.

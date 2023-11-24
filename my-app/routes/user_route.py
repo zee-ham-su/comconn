@@ -112,7 +112,7 @@ def register():
 
     # Create a new user and save it to the database
     new_user = User(
-        username=data['username'], email=data['email'], password_hash=hashed_password)
+        username=data['username'], email=data['email'], password_hash=hashed_password,  unique_salt=unique_salt)
     new_user.password_hash = hashed_password
     storage.new(new_user)
     storage.save()
@@ -128,7 +128,8 @@ def login():
 
     if user:
         # Generate the unique salt for the user stored in the database
-        unique_salt = f"{user.username}_{user.created_at}"
+        some_instance = DBStorage()
+        unique_salt = some_instance.get_unique_salt_from_database(user_id=user.id)
 
         entered_password = data.get('password').strip() if data.get('password') else None
         stored_hashed_password = hashlib.sha256(unique_salt.encode()).hexdigest()
@@ -137,12 +138,10 @@ def login():
         print(f'Stored Hashed Password: "{stored_hashed_password}"')
 
         # Check if the password matches
-        if stored_hashed_password == user.password_hash:
+        if hashlib.sha256((unique_salt + entered_password).encode()).hexdigest() == user.password_hash:
             return jsonify({'message': 'Login successful'}), 200
         else:
             return jsonify({'message': 'Invalid username or password'}), 401
-    else:
-        return jsonify({'message': 'Invalid username or password'}), 401
 
 
 @user_bp.route('/update_profile', methods=['GET', 'PUT'])
