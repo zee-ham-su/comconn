@@ -13,36 +13,11 @@
   </div>
 </template>
 
-<script>
-import apiClient from '@/services/api.js';
 
-export default {
-  data() {
-    return {
-      username: '',
-      password: '',
-    };
-  },
-  methods: {
-    async login() {
-      try {
-        const response = await apiClient.post('/login', {
-          username: this.username,
-          password: this.password,
-        });
-
-        console.log(response.data.message);
-      } catch (error) {
-        console.error('Login failed:', error.response.data.message);
-      }
-    },
-  },
-};
-</script>
 
 <style scoped>
 .login-form-container {
-  max-width: 300px;
+  max-inline-size: 300px;
   margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -63,14 +38,14 @@ h2 {
 }
 
 label {
-  margin-bottom: 8px;
+  margin-block-end: 8px;
   color: #555;
 }
 
 input {
-  width: 100%;
+  inline-size: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-block-end: 15px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 3px;

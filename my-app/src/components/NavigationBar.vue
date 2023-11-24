@@ -6,6 +6,8 @@
       <li><router-link to="/reviews">Reviews</router-link></li>
       <li><router-link to="/user">User Profile</router-link></li>
       <li><router-link to="/login">Login Page</router-link></li>
+      <li><router-link to="/register">Register Here</router-link></li>
+      
     </ul>
   </nav>
 </template>

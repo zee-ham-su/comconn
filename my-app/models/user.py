@@ -82,6 +82,8 @@ class User(BaseModel, Base, UserMixin):
         Returns:
             bool: True if the password matches, False otherwise.
         """
+        if self.password_hash is None:
+            return False
         return check_password_hash(self.password_hash, password)
     
     def get_id(self):

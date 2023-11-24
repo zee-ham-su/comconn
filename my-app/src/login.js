@@ -6,21 +6,7 @@ import api from '@/services/api';
 const app = createApp({});
 
 app.component('LoginForm', {
-    template: `
-    <div>
-      <h2>Login</h2>
-      <p>LoginForm is loaded!</p>
-      <form @submit.prevent="login">
-        <label for="username">Username:</label>
-        <input type="text" id="username" v-model="username" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" required><br>
-
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  `,
+    
     data() {
         return {
             username: '',
