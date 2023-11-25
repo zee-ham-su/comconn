@@ -7,7 +7,7 @@ from models.storage.db_storage import DBStorage
 from models.user import User
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
-from flask import render_template
+from flask import render_template, redirect, url_for
 
 
 user_bp = Blueprint('user_bp', __name__)
@@ -139,9 +139,21 @@ def login():
 
         # Check if the password matches
         if hashlib.sha256((unique_salt + entered_password).encode()).hexdigest() == user.password_hash:
+            
             return jsonify({'message': 'Login successful'}), 200
         else:
             return jsonify({'message': 'Invalid username or password'}), 401
+
+
+@user_bp.route('/dashboard', methods=['GET', 'OPTIONS'])
+@login_required
+def dashboard():
+    # Check if the user is authenticated
+    if not current_user.is_authenticated:
+        # Redirect to the login page
+        return redirect(url_for('user_bp.login'))
+
+    return render_template('dashboard.html')
 
 
 @user_bp.route('/update_profile', methods=['GET', 'PUT'])
