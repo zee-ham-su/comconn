@@ -4,7 +4,6 @@
         <div class="container">
             <h1>Community Users</h1>
             <div class="user-card" v-for="user in users" :key="user.id">
-                <h2>User ID: {{ user.id }}</h2>
                 <p>Username: {{ user.username }}</p>
                 <p>Email: {{ user.email }}</p>
                 <!-- Add more details as needed -->
