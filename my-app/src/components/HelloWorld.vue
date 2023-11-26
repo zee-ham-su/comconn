@@ -1,5 +1,6 @@
 <template>
   <div>
+     <NavigationBar /> 
     <h1>Welcome to CommunityConnect</h1>
     <p>Tackling restricted access to accurate and up-to-date information about critical community resources.</p>
   </div>
@@ -29,10 +30,14 @@
 </template>
 
 <script>
+import NavigationBar from '@/components/NavigationBar.vue';
 import apiClient from '@/services/api.js';
 
 export default {
-  name: 'LandingPage',
+  name: 'HelloWorld',
+  components: {
+    NavigationBar,
+  },
   data() {
     return {
       formData: {

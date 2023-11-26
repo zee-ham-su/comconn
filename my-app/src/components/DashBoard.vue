@@ -1,7 +1,8 @@
 <template>
   <div class="dashboard-container">
     <h2>Welcome to your Dashboard!</h2>
-    <!-- Add more content as needed -->
+     <DashboardNavbar />
+     <router-view/>
 
     <form action="/logout" method="post">
       <button type="submit" class="logout-btn">Logout</button>
@@ -11,8 +12,12 @@
 
 <script>
 import apiClient from '@/services/api.js';
+import DashboardNavbar from '@/components/DashboardNavbar.vue';
 
 export default {
+  components: {
+    DashboardNavbar,
+  },
   methods: {
     async logout() {
       try {
@@ -54,5 +59,6 @@ h2 {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+  margin: 20px;
 }
 </style>

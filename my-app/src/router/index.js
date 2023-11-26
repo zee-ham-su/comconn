@@ -12,11 +12,11 @@ import('@/registerForm.js');
 
 const routes = [
     { path: '/', component: HelloWorld },
-    { path: '/resources', component: ResourcesPage },
+    { path: '/resources', component: ResourcesPage},
     { path: '/reviews', component: ReviewsPage},
     { path: '/user', component: UserProfile},
     { path: '/login', component: LoginForm},
-    { path: '/dashboard', component: DashBoard },
+    { path: '/dashboard', component: DashBoard},
     
     // Add more routes as needed
 ];
