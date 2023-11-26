@@ -31,14 +31,23 @@ methods: {
         username: this.username,
         password: this.password,
       });
-
-      // Handle the response as needed
-      console.log(response.data.message);
-    } catch (error) {
-      // Handle errors
-      console.error('Login failed:', error.response.data.message);
-    }
-  },
+        // Check if the login was successful
+        if (response.status === 200) {
+          // Redirect to the dashboard
+          this.$router.push('/dashboard');
+        } else {
+          // Handle other response statuses if needed
+          if (response.data) {
+            console.error('Login failed:', response.data.message);
+          } else {
+            console.error('Login failed. No response data available.');
+          }
+        }
+      } catch (error) {
+        // Handle errors
+        console.error('Login failed:', error.response ? error.response.data.message : 'Unknown error');
+      }
+    },
 },
 };
 </script>

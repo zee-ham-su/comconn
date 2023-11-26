@@ -68,7 +68,8 @@ def delete_user(user_id):
     storage.save()
     return jsonify({}), 204
 
-@user_bp.route('/logout')
+
+@user_bp.route('/logout',  methods=['POST'])
 @login_required
 def logout():
     logout_user()

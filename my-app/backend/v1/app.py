@@ -2,7 +2,7 @@
 """
 Flask app
 """
-from flask import Flask, jsonify, make_response, render_template
+from flask import Flask, jsonify, make_response
 from routes.review_route import review_bp
 from routes.resource_route import resource_bp
 from routes.user_route import user_bp
@@ -13,10 +13,10 @@ from models.user import User
 
 
 def create_app():
-    app = Flask(__name__, template_folder='backend/v1/templates')
+    app = Flask(__name__)
     app.config['SECRET_KEY'] = 'f3d092628277affcb6761e4b94b354f31d17a52592f31333'
     login_manager = LoginManager(app)
-    CORS(app)
+    CORS(app, methods=["POST"])
 
     # Register blueprints
     app.register_blueprint(user_bp)
