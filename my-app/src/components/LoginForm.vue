@@ -1,5 +1,6 @@
 <template>
   <div class="login-form-container">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <h2>Login</h2>
     <form @submit.prevent="login" class="login-form">
       <label for="username">Username:</label>

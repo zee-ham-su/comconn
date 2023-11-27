@@ -69,8 +69,7 @@ def delete_user(user_id):
     return jsonify({}), 204
 
 
-@user_bp.route('/logout',  methods=['POST'])
-@login_required
+@user_bp.route('/logout',  methods=['DELETE'])
 def logout():
     logout_user()
     return jsonify({'message': 'Logout successful'}), 200

@@ -1,5 +1,6 @@
 <template>
   <nav class="navbar">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <ul class="nav-list">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/login">Login Page</router-link></li>

@@ -1,10 +1,11 @@
 <template>
   <div class="dashboard-container">
-    <h2>Welcome to your Dashboard!</h2>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    <h2>Welcome to our Dashboard!</h2>
      <DashboardNavbar />
      <router-view/>
 
-    <form action="/logout" method="post">
+    <form @submit.prevent="logout">
       <button type="submit" class="logout-btn">Logout</button>
     </form>
   </div>
@@ -22,7 +23,7 @@ export default {
     async logout() {
       try {
         // Make a request to your logout endpoint
-        const response = await apiClient.post('/logout');
+        const response = await apiClient.delete('/logout');
 
         // Handle successful logout
         console.log('Logout successful:', response.data.message);

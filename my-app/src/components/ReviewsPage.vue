@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
       <h1 class="title">Community Reviews</h1>
 
       <!-- Review Submission Form -->
@@ -38,7 +38,7 @@
       </div>
     </div>
   </div>
-  </div>
+
 </template>
 
 <script>
@@ -97,33 +97,25 @@ export default {
 <style scoped>
 /* Updated styling for your ReviewsPage */
 
-.container {
-  max-inline-size: 300px;
-  margin: 0 auto;
-}
 
 .title {
   color: #5842b9;
-  text-align: center;
+  text-align: start;
   margin-block-end: 20px;
 }
 
 .review-form {
   background-color: rgb(25, 175, 70);
   border: 5px solid #ced4da;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-block-end: 20px;
   position: absolute;
   inset-block-start: 120px;
-  inset-inline-end: 40px;
+  inset-inline-end: 70px;
 }
 
-.reviews-container {
-  float: inline-end;
-  max-inline-size: 500px;
-}
 
 
 
@@ -170,8 +162,8 @@ button:hover {
   margin-block-end: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-inline-size: 150%; /* Adjust the width as needed */
-  margin-inline-start: 0;
+  position: left;
+  max-inline-size: 60%;
 }
 
 .user-id,

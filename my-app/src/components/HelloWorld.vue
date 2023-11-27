@@ -1,6 +1,7 @@
 <template>
   <div>
      <NavigationBar /> 
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <h1>Welcome to CommunityConnect</h1>
     <p>Tackling restricted access to accurate and up-to-date information about critical community resources.</p>
   </div>
