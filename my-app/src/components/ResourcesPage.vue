@@ -40,8 +40,7 @@ export default {
 
     loadGoogleMapsScript() {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCqoeDgkfk_2-3csLzYkPcu9JU5iOSN_Uk
-&callback=initMap`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap`;
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);

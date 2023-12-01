@@ -5,6 +5,7 @@ import ReviewsPage from '@/components/ReviewsPage.vue';
 import UserProfile from '@/components/UserProfile.vue';
 import LoginForm from '@/components/LoginForm.vue';
 import DashBoard from '@/components/DashBoard.vue';
+import MapComponent from "@/components/MapComponent.vue";
 import('@/update_profile.js');
 import('@/login.js');
 import('@/registerForm.js');
@@ -17,6 +18,7 @@ const routes = [
     { path: '/user', component: UserProfile},
     { path: '/login', component: LoginForm},
     { path: '/dashboard', component: DashBoard},
+    { path: '/', component: MapComponent },
     
     // Add more routes as needed
 ];
