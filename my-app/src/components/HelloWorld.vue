@@ -10,11 +10,20 @@
     <img src="../assets/background_img.png" alt="background img" class="img1">
   </div>
   <div class="text1">
-    <p>Having access to critical community resources and facilities is very important for a easy and smooth life. Below are some features explained to help you know how to utilize the platform to access the critical community resources and facilities. </p>
+    <p>Having access to critical community resources and 
+      facilities is very important for a easy and smooth life. 
+      Below are some features explained to help you know how to 
+      utilize the platform to access the critical community resources and facilities. </p>
   </div>
-  <div>
     <MapComponent />
+  <div class="feature2">
     <img src="../assets/feature2_img.png" alt="feature img" class="img3">
+    <div class="text-box2">
+    <h2>Community Reviews</h2>
+    <p>With the help of the reviews left by other users about the critical resources in your commmunity, 
+      you are going to be up-to-date with about the critical resources so you are not left stranded. 
+      You can also add you reviews to help and also help improve the facilities you visited</p>
+    </div>
   </div>
   <div class="container">
     <h1 class="title">Sign Up</h1>
@@ -156,14 +165,19 @@ gmp-map {
   width: 100%;
 }
 .img3{
-  display: flex;
+  /*display: flex;
   position: relative;
-  right: auto;
+  right: auto;*/
+  float: right;
   width: 54%;
   margin: 20px;
 }
+.text-box2{
+    margin-left: 20px;
+    padding: 20px;
+  }
 .text1{
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 </style>

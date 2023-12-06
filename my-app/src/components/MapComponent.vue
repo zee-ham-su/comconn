@@ -1,6 +1,13 @@
 <template>
     <div class="map-container">
         <gmp-map :center="mapCenter" :zoom="mapZoom" map-id="DEMO_MAP_ID"></gmp-map>
+        <div class="text-box1">
+            <h2>Critical Resources Map</h2>
+            <p>This mape shows you all the critical resources in your commmunity. 
+                The critical resources includes Hospitals, Schools, Police Stations, 
+                Ghana National Fire Service Stations, Markets, Bus Stops & Stations.
+            </p>
+        </div>
     </div>
 </template>
 
@@ -80,6 +87,10 @@ export default {
 gmp-map {
     height: 400px;
     /* Set a specific height for the map */
-    width: 55%;
+    width: 1500px;
     /* Adjust the width as needed */
-}</style>
+}
+.text-box1{
+    margin-left: 20px;
+}
+</style>
