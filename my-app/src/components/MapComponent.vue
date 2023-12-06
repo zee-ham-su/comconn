@@ -80,6 +80,6 @@ export default {
 gmp-map {
     height: 400px;
     /* Set a specific height for the map */
-    width: 70%;
+    width: 55%;
     /* Adjust the width as needed */
 }</style>

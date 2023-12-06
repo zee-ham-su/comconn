@@ -5,6 +5,16 @@
     <h1>Welcome to CommunityConnect</h1>
     <p>Tackling restricted access to accurate and up-to-date information about critical community resources.</p>
   </div>
+  <div>
+    <img src="../assets/background_img.png" alt="background img" class="img1">
+  </div>
+  <div class="text1">
+    <p>Having access to critical community resources and facilities is very important for a easy and smooth life. Below are some features explained to help you know how to utilize the platform to access the critical community resources and facilities. </p>
+  </div>
+  <div>
+    <MapComponent />
+    <img src="../assets/feature2_img.png" alt="feature img" class="img3">
+  </div>
   <div class="container">
     <h1 class="title">Sign Up</h1>
     <form @submit.prevent="register" class="registration-form">
@@ -27,7 +37,6 @@
         <button type="submit" class="form-button">Register</button>
       </div>
     </form>
-     <MapComponent />
   </div>
 </template>
 
@@ -139,5 +148,21 @@ a {
 }
 gmp-map {
   height: 400px;
+}
+.img1{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.img3{
+  display: flex;
+  position: relative;
+  right: auto;
+  width: 54%;
+  margin: 20px;
+}
+.text1{
+  text-align: center;
+  padding-top: 20px;
 }
 </style>
