@@ -15,16 +15,8 @@
       Below are some features explained to help you know how to 
       utilize the platform to access the critical community resources and facilities. </p>
   </div>
-    <MapComponent />
-  <div class="feature2">
-    <img src="../assets/feature2_img.png" alt="feature img" class="img3">
-    <div class="text-box2">
-    <h2>Community Reviews</h2>
-    <p>With the help of the reviews left by other users about the critical resources in your commmunity, 
-      you are going to be up-to-date with about the critical resources so you are not left stranded. 
-      You can also add you reviews to help and also help improve the facilities you visited</p>
-    </div>
-  </div>
+  <MapComponent />
+  <LandingPage />
   <div class="container">
     <h1 class="title">Sign Up</h1>
     <form @submit.prevent="register" class="registration-form">
@@ -54,13 +46,15 @@
 import NavigationBar from '@/components/NavigationBar.vue';
 import apiClient from '@/services/api.js';
 import MapComponent from "@/components/MapComponent.vue";
+import LandingPage from './LandingPage.vue';
 
 export default {
   name: 'HelloWorld',
   components: {
     NavigationBar,
     MapComponent,
-  },
+    LandingPage
+},
   data() {
     return {
       formData: {
@@ -164,18 +158,6 @@ gmp-map {
   justify-content: flex-start;
   width: 100%;
 }
-.img3{
-  /*display: flex;
-  position: relative;
-  right: auto;*/
-  float: right;
-  width: 54%;
-  margin: 20px;
-}
-.text-box2{
-    margin-left: 20px;
-    padding: 20px;
-  }
 .text1{
   text-align: center;
   padding-top: 30px;
