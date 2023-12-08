@@ -63,6 +63,7 @@ methods: {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   text-align: center;
+  margin-top: 30px;
 }
 
 h2 {

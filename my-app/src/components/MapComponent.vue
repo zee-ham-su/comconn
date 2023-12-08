@@ -2,10 +2,10 @@
     <div class="map-container">
         <gmp-map :center="mapCenter" :zoom="mapZoom" map-id="DEMO_MAP_ID"></gmp-map>
         <div class="text-box1">
-            <h2>Critical Resources Map</h2>
-            <p>This mape shows you all the critical resources in your commmunity. 
-                The critical resources includes Hospitals, Schools, Police Stations, 
-                Ghana National Fire Service Stations, Markets, Bus Stops & Stations.
+            <h2>Community Resource Visualization</h2>
+            <p>The map component allows users to visually explore and understand the 
+                distribution of community resources. This is a powerful feature for 
+                users to locate and assess available resources in their community.
             </p>
         </div>
     </div>
