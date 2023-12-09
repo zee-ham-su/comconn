@@ -13,6 +13,12 @@ from models.user import User
 
 
 def create_app():
+    """
+    Create and configure the Flask app.
+
+    Returns:
+        Flask: The configured Flask app.
+    """
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'f3d092628277affcb6761e4b94b354f31d17a52592f31333'
     login_manager = LoginManager(app)
@@ -34,16 +40,22 @@ def create_app():
     # Root URL handler
     @app.route('/')
     def index():
+        """
+        Handle requests to the root URL.
+
+        Returns:
+        Response: JSON response with a welcome message.
+        """
         return jsonify({'message': 'Welcome to the My App API'})
 
     # 404 Error handler
     @app.errorhandler(404)
     def not_found(error):
-        """ 404 Error
-        ---
-        responses:
-            404:
-                description: a resource was not found
+        """ 404 Error handler
+        Parameters:
+            error (Exception): the exception object
+        Returns:
+            responses: JSON response with a 404 error message.
         """
         return make_response(jsonify({'error': "Not found"}), 404)
 

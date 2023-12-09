@@ -11,6 +11,12 @@ resource_bp = Blueprint('resource_bp', __name__)
 
 @resource_bp.route('/resources', methods=['GET'])
 def get_resources():
+    """
+    Retrieve a list of all resources.
+
+    Returns:
+        Response: JSON response with a list of resources.
+    """
     resources = storage.get_all(Resource)
     resource_data = [{'id': resource.id, 'name': resource.name,
                       'description': resource.description} for resource in resources]
@@ -19,6 +25,15 @@ def get_resources():
 
 @resource_bp.route('/resources/<int:resource_id>', methods=['GET'])
 def get_resource(resource_id):
+    """
+    Retrieve information about a specific resource.
+
+    Parameters:
+        resource_id (int): The ID of the resource to retrieve.
+
+    Returns:
+        Response: JSON response with information about the requested resource.
+    """
     resource = storage.get(Resource, resource_id)
     if not resource:
         abort(404)
@@ -27,6 +42,12 @@ def get_resource(resource_id):
 
 @resource_bp.route('/resources', methods=['POST'])
 def create_resource():
+    """
+    Create a new resource.
+
+    Returns:
+        Response: JSON response with information about the newly created resource.
+    """
     data = request.get_json()
     new_resource = Resource(**data)
     storage.new(new_resource)
@@ -36,6 +57,15 @@ def create_resource():
 
 @resource_bp.route('/resources/<int:resource_id>', methods=['PUT'])
 def update_resource(resource_id):
+    """
+    Update information about a specific resource.
+
+    Parameters:
+        resource_id (int): The ID of the resource to update.
+
+    Returns:
+        Response: JSON response with updated information about the resource.
+    """
     resource = storage.get(Resource, resource_id)
     if not resource:
         abort(404)
@@ -48,6 +78,15 @@ def update_resource(resource_id):
 
 @resource_bp.route('/resources/<int:resource_id>', methods=['DELETE'])
 def delete_resource(resource_id):
+    """
+    Delete a specific resource.
+
+    Parameters:
+        resource_id (int): The ID of the resource to delete.
+
+    Returns:
+        Response: JSON response indicating a successful deletion.
+    """
     resource = storage.get(Resource, resource_id)
     if not resource:
         abort(404)
