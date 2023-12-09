@@ -14,11 +14,23 @@ user_bp = Blueprint('user_bp', __name__)
 
 
 def get_storage():
+    """
+    Get an instance of the storage system.
+
+    Returns:
+        DBStorage: An instance of the database storage system.
+    """
     return DBStorage()
 
 
 @user_bp.route('/users', methods=['GET'])
 def get_users():
+    """
+    Retrieve a list of all users.
+
+    Returns:
+        Response: JSON response with a list of users.
+    """
     storage = get_storage()
     users = storage.get_all(User)
     user_data = [{'id': user.id, 'username': user.username,
@@ -28,6 +40,12 @@ def get_users():
 
 @user_bp.route('/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
+    """
+    Retrieve a list of all users.
+
+    Returns:
+        Response: JSON response with a list of users.
+    """
     storage = get_storage()
     user = storage.get(User, user_id)
     if not user:
@@ -37,6 +55,12 @@ def get_user(user_id):
 
 @user_bp.route('/users', methods=['POST'])
 def create_user():
+    """
+    create a list of all users.
+
+    Returns:
+        Response: JSON response with a list of users.
+    """
     storage = get_storage()
     data = request.get_json()
     new_user = User(**data)
@@ -47,6 +71,12 @@ def create_user():
 
 @user_bp.route('/users/<int:user_id>', methods=['PUT'])
 def update_user(user_id):
+    """
+    update a list of all users.
+
+    Returns:
+        Response: JSON response with a list of users.
+    """
     storage = get_storage()
     user = storage.get(User, user_id)
     if not user:
@@ -60,6 +90,12 @@ def update_user(user_id):
 
 @user_bp.route('/users/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
+    """
+    delete a list of all users.
+
+    Returns:
+        Response: JSON response with a list of users.
+    """
     storage = get_storage()
     user = storage.get(User, user_id)
     if not user:
@@ -71,6 +107,12 @@ def delete_user(user_id):
 
 @user_bp.route('/logout',  methods=['DELETE'])
 def logout():
+    """
+    Logout the current user.
+
+    Returns:
+        Response: JSON response indicating a successful logout.
+    """
     logout_user()
     return jsonify({'message': 'Logout successful'}), 200
 
@@ -78,11 +120,23 @@ def logout():
 @user_bp.route('/current_user')
 @login_required
 def get_current_user():
+    """
+    Get information about the current authenticated user.
+
+    Returns:
+        Response: JSON response with information about the current user.
+    """
     return jsonify(current_user.to_dict())
 
 
 @user_bp.route('/register', methods=['POST'])
 def register():
+    """
+    Register a new user.
+
+    Returns:
+        Response: JSON response indicating the success of the registration.
+    """
     data = request.get_json()
     print("Received data:", data)
     storage = get_storage()
@@ -122,6 +176,12 @@ def register():
 
 @user_bp.route('/login', methods=['POST'])
 def login():
+    """
+    Login a user.
+
+    Returns:
+        Response: JSON response indicating the success or failure of the login attempt.
+    """
     data = request.get_json()
     storage = get_storage()
     user = storage.get_user_by_username(data.get('username'))
@@ -148,6 +208,12 @@ def login():
 @user_bp.route('/dashboard', methods=['GET', 'OPTIONS'])
 @login_required
 def dashboard():
+    """
+    Display the user dashboard.
+
+    Returns:
+        Response: Rendered HTML template for the user dashboard.
+    """
     # Check if the user is authenticated
     if not current_user.is_authenticated:
         # Redirect to the login page
@@ -159,6 +225,12 @@ def dashboard():
 @user_bp.route('/update_profile', methods=['GET', 'PUT'])
 @login_required
 def update_profile():
+    """
+    Update the user profile.
+
+    Returns:
+        Response: JSON response indicating the success of the profile update.
+    """
     if request.method == 'GET':
         data = request.get_json()
         user = current_user
