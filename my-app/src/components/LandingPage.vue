@@ -40,7 +40,7 @@
 
     <ul>
       <li>
-        <strong class="Name">Hamza Sufien: </strong>
+        <strong class="Name">Hamza Sufian: </strong>
         <a href="https://www.linkedin.com/in/@hsufiian" target="_blank" class="link">LinkedIn</a>,
         <a href="https://www.github.com/zee-ham-su" target="_blank" class="link">GitHub</a>,
         <a href="https://www.twitter.com/hsufiian" target="_blank" class="link">Twitter</a>
