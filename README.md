@@ -32,7 +32,7 @@
     
 ![20231213_224611](https://github.com/zee-ham-su/comconn/assets/125477741/0d7e7dba-5536-409b-a2a4-81eaf5bcbbc9)
 
-__Project isn't deployed yet so you can only run the app locally__
+__Project isn't deployed yet so you can only run the app locally.__
 
 ## FEATURES
 1. Signup
