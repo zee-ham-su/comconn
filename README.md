@@ -14,6 +14,7 @@
 3. Database: SQLALCHEMY for efficient data storage and retrieval.
 4. CSS Framework: Bootstrap (Lux theme)
 5. Architecture: RESTful API architecture for seamless communication between frontend and backend.
+   
 ![20231213_232935](https://github.com/zee-ham-su/comconn/assets/125477741/267217be-047a-4a61-960b-bc507453aa31)
 
 ## Installation
@@ -28,6 +29,7 @@
 9. Run "app.py" (see; cat ../my-app/backend/v1/app.py)
 10.  Navigate into the "src" (using cd comconn/my-app/src)
 11.  Run npm run serve
+    
 ![20231213_224611](https://github.com/zee-ham-su/comconn/assets/125477741/0d7e7dba-5536-409b-a2a4-81eaf5bcbbc9)
 
 __Project isn't deployed yet so you can only run the app locally__
@@ -41,6 +43,7 @@ __Project isn't deployed yet so you can only run the app locally__
 6. User profile
 7. Navigation the map
 8. Logout
+   
 ![20231213_224023](https://github.com/zee-ham-su/comconn/assets/125477741/3fcfb20a-43a6-4a83-b9f4-021191048ff0)
 
 ![20231213_224106](https://github.com/zee-ham-su/comconn/assets/125477741/5ac25548-8751-4cb6-a566-17f821a6861f)
